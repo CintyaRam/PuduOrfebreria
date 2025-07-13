@@ -132,3 +132,41 @@ $(document).ready(function () {
         }
     });
 });
+
+$('#contactForm').on('submit', function (e) {
+    const nombre = $('#nombre').val().trim();
+    const email = $('#email').val().trim();
+    const mensaje = $('#mensaje').val().trim();
+    const producto = $('#producto').val().trim();
+
+    if (!nombre || !email || !mensaje || !producto) {
+        e.preventDefault();
+        alert("Por favor completa todos los campos.");
+    }
+});
+
+$(document).ready(function () {
+    $('.formulario').on('submit', function (e) {
+        e.preventDefault(); // Evita el envío por defecto
+
+        const $form = $(this);
+        const formData = new FormData(this);
+
+        $.ajax({
+            url: $form.attr('action'),
+            method: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            headers: {
+                'Accept': 'application/json'
+            },
+            success: function () {
+                window.location.href = "https://cintyaram.github.io/PuduOrfebreria/gracias.html";
+            },
+            error: function () {
+                alert('Hubo un problema al enviar el formulario.');
+            }
+        });
+    });
+});
