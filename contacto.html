@@ -82,7 +82,11 @@
     </div>
     <div class="container-contact-form">
         <h2 class="contact-title">Contáctanos</h2>
-        <form action="https://formspree.io/f/mjkrdzeo" method="POST">
+        <form action="https://formspree.io/f/mjkrdzeo " method="POST">
+            <!-- Campo oculto para redirección -->
+            <input type="hidden" name="_next" value="https://cintyaram.github.io/PuduOrfebreria/gracias.html" />
+
+            <!-- Campos del formulario -->
             <label for="nombre" class="form-label">Nombre</label>
             <input id="nombre" name="nombre" type="text" class="form-control" required />
 
